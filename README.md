@@ -16,7 +16,7 @@ First, [create a webhook](https://support.discord.com/hc/en-us/articles/22838366
 - `THUMBNAIL_URL`: (Optional) An icon to be embedded in each post. By default, the [Fider logo](https://github.com/getfider/fider/blob/main/favicon.png) is used.
 - `UPDATE_INTERVAL`: (Optional) An integer from 1 to 60 specifying minutes between each update. For example, `1` would retrieve updates from Fider every minute, `60` would retrieve updates every hour. (Default: 15)
 
-Then, run `node index.js`, leave the terminal open, and now every 15 minutes new posts will be posted to the webhook specified.
+Then, run `node index.js`, leave the terminal open, and now every 15 minutes (or however long specified in `UPDATE_INTERVAL`), new posts will be posted to the webhook specified.
 
 Alternatively, you can run this in the background using something like [PM2](https://pm2.keymetrics.io).
 
