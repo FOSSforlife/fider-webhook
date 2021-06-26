@@ -4,9 +4,12 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 
+
+const { FIDER_URL, WEBHOOK_URL, THUMBNAIL_URL, UPDATE_INTERVAL } = process.env;
+const updateInterval = UPDATE_INTERVAL || 15;
+
 const jobs = [
-  schedule.scheduleJob('* * * * *', async function(){
-    const { FIDER_URL, WEBHOOK_URL, THUMBNAIL_URL } = process.env;
+  schedule.scheduleJob(`*/${updateInterval} * * * *`, async function(){
     const FIDER_CACHE_FILE = 'fider-cache.json';
 
     console.log('Fetching Fider posts');
