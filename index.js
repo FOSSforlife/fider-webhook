@@ -5,10 +5,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const { FIDER_URL, WEBHOOK_URL, THUMBNAIL_URL, UPDATE_INTERVAL } = process.env;
-const updateInterval = UPDATE_INTERVAL || 15;
 
 const jobs = [
-  schedule.scheduleJob(`*/${updateInterval} * * * *`, async function(){
+  schedule.scheduleJob(`*/${UPDATE_INTERVAL || 15} * * * *`, async function(){
     const FIDER_CACHE_FILE = 'fider-cache.json';
 
     console.log('Fetching Fider posts');
