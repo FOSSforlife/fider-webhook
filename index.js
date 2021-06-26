@@ -6,7 +6,7 @@ dotenv.config();
 
 const jobs = [
   schedule.scheduleJob('* * * * *', async function(){
-    const { FIDER_URL, WEBHOOK_URL } = process.env;
+    const { FIDER_URL, WEBHOOK_URL, THUMBNAIL_URL } = process.env;
     const FIDER_CACHE_FILE = 'fider-cache.json';
 
     console.log('Fetching Fider posts');
@@ -32,7 +32,10 @@ const jobs = [
             name: 'New Suggestion',
             url: FIDER_URL
           },
-          timestamp: createdAt
+          timestamp: createdAt,
+          thumbnail: {
+            url: THUMBNAIL_URL || 'https://raw.githubusercontent.com/getfider/fider/main/favicon.png',
+          }
         }]
       })
     }
