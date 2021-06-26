@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const jobs = [
-  schedule.scheduleJob('* * * * *', async function(){
+  schedule.scheduleJob('*/15 * * * *', async function(){
     const { FIDER_URL, WEBHOOK_URL } = process.env;
     const FIDER_CACHE_FILE = 'fider-cache.json';
 
