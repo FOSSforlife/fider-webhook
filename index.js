@@ -5,12 +5,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const jobs = [
-  schedule.scheduleJob('*/15 * * * *', async function(){
+  schedule.scheduleJob('* * * * *', async function(){
     const { FIDER_URL, WEBHOOK_URL } = process.env;
     const FIDER_CACHE_FILE = 'fider-cache.json';
 
     console.log('Fetching Fider posts');
-    const posts = (await axios.get(`${FIDER_URL}/api/v1/posts`)).data;
+    const posts = (await axios.get(`${FIDER_URL}/api/v1/posts?limit=3`)).data;
     const cachedPosts = fs.existsSync(FIDER_CACHE_FILE) ? JSON.parse(fs.readFileSync(FIDER_CACHE_FILE)) : [];
     fs.writeFileSync(FIDER_CACHE_FILE, JSON.stringify(posts, undefined, 2));
 
