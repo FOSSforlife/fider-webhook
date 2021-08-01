@@ -25,7 +25,7 @@ const jobs = [
         embeds: [{
           title,
           description,
-          url: `${FIDER_URL}/${slug}`,
+          url: `${FIDER_URL}/posts/${id}/${slug}`,
           footer: {
             text: `Submitted by ${user.name}`,
           },
