@@ -11,7 +11,7 @@ const jobs = [
     const FIDER_CACHE_FILE = 'fider-cache.json';
 
     console.log('Fetching Fider posts');
-    const posts = (await axios.get(`${FIDER_URL}/api/v1/posts?limit=3`)).data;
+    const posts = (await axios.get(`${FIDER_URL}/api/v1/posts?limit=3&view=recent`)).data;
     const cachedPosts = fs.existsSync(FIDER_CACHE_FILE) ? JSON.parse(fs.readFileSync(FIDER_CACHE_FILE)) : [];
     fs.writeFileSync(FIDER_CACHE_FILE, JSON.stringify(posts, undefined, 2));
 
