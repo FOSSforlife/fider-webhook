@@ -33,6 +33,10 @@ const jobs = [
             name: 'New Suggestion',
             url: FIDER_URL
           },
+          fields: [{
+            name: '\u200b',
+            value: `[Submit an idea](${FIDER_URL})`
+          }],
           timestamp: createdAt,
           thumbnail: {
             url: THUMBNAIL_URL || 'https://raw.githubusercontent.com/getfider/fider/main/favicon.png',
